@@ -1,0 +1,41 @@
+@import "../generalStyles/general.scss";
+@import "../generalStyles/reset.scss";
+
+.menu {
+  width: 300px;
+  height: calc(100vh - 45px);
+  display: flex;
+  position: relative;
+  left: 0;
+
+  .sidebar {
+    width: 300px;
+    background: $col4;
+    padding: 20px 5px 20px 20px;
+  }
+
+  .shadow {
+    width: 0;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .menu {
+    width: 100vw;
+    height: calc(100vh - 45px);
+    display: flex;
+    position: absolute;
+    left: 0;
+    .sidebar {
+      width: 300px;
+      background: $col4;
+    }
+    .shadow {
+      flex: 1 1 auto;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+  }
+
+}

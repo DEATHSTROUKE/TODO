@@ -1,0 +1,23 @@
+$f1: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+$f2: Pacifico, cursive;
+$col1: #000;
+$col2: #fff;
+$col3: #db4c3f;
+$col31: #b63b32;
+$col4: #fafafa;
+$col5: #dbdbdb;
+/* MAIN */
+
+* {
+  font-family: $f1;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  flex: 1 0 auto;
+}

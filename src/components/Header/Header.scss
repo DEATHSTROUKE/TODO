@@ -1,0 +1,94 @@
+@import "../generalStyles/reset.scss";
+@import "../generalStyles/general.scss";
+
+
+.header {
+  height: 45px;
+  background: $col3;
+
+  .container {
+    height: 100%;
+  }
+}
+
+.header__wrapper {
+  height: 100%;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__menu {
+  cursor: pointer;
+
+  .burger__btn {
+    background: transparent;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    padding: 15px;
+    border-radius: 5px;
+    transition: all .2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 1.5px;
+      background: $col2;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-52%);
+      z-index: 2;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 1.5px;
+      background: $col2;
+      bottom: 25%;
+      left: 50%;
+      transform: translateX(-52%);
+      z-index: 2;
+    }
+
+    span {
+      position: absolute;
+      width: 20px;
+      height: 1.5px;
+      background: $col2;
+      top: calc(50% - 0.75px);
+      left: 50%;
+      transform: translateX(-52%);
+      z-index: 2;
+    }
+  }
+}
+
+.header__profile {
+  color: $col2;
+  font-family: $f1;
+  font-weight: bold;
+
+  .profile__ava {
+    background: $col2;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    color: $col3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popup.popup__menu {
+  }
+}
+
