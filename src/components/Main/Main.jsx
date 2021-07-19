@@ -2,10 +2,13 @@ import React from 'react';
 import './Main.css'
 import '../TodayPage/TodayPage'
 import TodayPage from "../TodayPage/TodayPage";
+import cn from 'classnames'
+import store from '../../store/store'
+import {observer} from "mobx-react-lite";
 
 const Main = () => {
     return (
-        <main className="main">
+        <main className={cn("main", {"opened": store.isMenuOpen})}>
             <div className="container">
                 <TodayPage/>
             </div>
@@ -13,4 +16,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default observer(Main);

@@ -144,6 +144,14 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   opacity: 0;
   transition: all 0.2s ease;
+  margin: 0 10px 0 0;
+}
+.today .today__todo .todo__item .todo__left .text {
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 @media screen and (max-width: 900px) {
   .today .today__todo .todo__item .todo__left button.move {
@@ -159,7 +167,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  margin: 0 7px;
+  margin: 0 12px 0 0;
   transition: all 0.2s ease;
 }
 .today .today__todo .todo__item .todo__left button.check i.fas.fa-check {

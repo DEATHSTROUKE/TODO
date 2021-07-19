@@ -4,8 +4,6 @@ import AddTask from "../AddTask/AddTask";
 
 const TodayPage = () => {
     let now = React.useRef(new Date())
-    console.log(now.current)
-
     return (
         <div className="today">
             <div className="today__row">
@@ -34,7 +32,7 @@ const TodayPage = () => {
                             <i className="fas fa-check"/>
                         </button>
                         <div className="text">
-                            Продолжить изучать верстку и css
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, facilis itaque labore libero molestias nihil nisi nostrum nulla quaerat rerum similique totam, unde! Accusamus at atque dolorum earum error exercitationem inventore molestiae molestias natus optio, provident sequi, tenetur vel veniam, voluptatum. Adipisci autem hic nisi vel? Architecto atque consectetur cumque dolore enim quia quisquam sed voluptatem? Adipisci aliquid, consectetur ducimus ea explicabo hic, ipsa ipsum, labore nemo quia quo reiciendis unde vitae. Aut expedita in ipsum magnam minus molestias officiis provident quia saepe vero. A cum, deleniti distinctio dolores, doloribus ducimus esse iure modi perferendis provident quam quos reiciendis voluptatum.
                         </div>
                     </div>
                     <div className="todo__right">

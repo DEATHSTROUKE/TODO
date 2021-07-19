@@ -9,9 +9,23 @@ const Menu = () => {
     const [showAddProject, setShowAddProject] = useState(false)
     const [menuProjectsOpen, setMenuProjectsOpen] = useState(true);
     const now = React.useRef(new Date());
+    const menu = React.useRef();
+    const hideMenu = () => {
+        menu.current.style.display = 'none'
+    }
+
     return (
-        <div className={cn("menu", {"opened": store.isMenuOpen})}>
-            <div className="sidebar">
+        <div className={cn("menu", {"opened": store.isMenuOpen})}
+             ref={menu}
+             style={{display: store.isMenuOpen ? 'flex' : ''}}
+        >
+            <div className="sidebar"
+                 onAnimationEnd={() => {
+                     if (!store.isMenuOpen) {
+                         hideMenu()
+                     }
+                 }}
+            >
                 <div className="sidebar__main">
                     <a href='#' className="sidebar__row active">
                         <div className="left__icon">
