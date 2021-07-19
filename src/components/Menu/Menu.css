@@ -89,16 +89,180 @@ h1, h2, h3, h4, h5, h6 {
   height: calc(100vh - 45px);
   display: flex;
   position: relative;
+  z-index: 10;
+  left: -100%;
+  transition: all 0.2s ease;
+}
+.menu.opened {
   left: 0;
 }
 .menu .sidebar {
   width: 300px;
   background: #fafafa;
-  padding: 20px 5px 20px 20px;
+  padding: 20px 5px 30px 20px;
+}
+.menu .sidebar i.fas.fa-plus {
+  color: grey;
+}
+.menu .sidebar:hover i.fas.fa-plus {
+  opacity: 1;
+  transition: all 0.2s ease;
 }
 .menu .shadow {
   width: 0;
   overflow: hidden;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+.sidebar__main {
+  padding: 10px 5px 10px 10px;
+}
+.sidebar__main a.sidebar__row {
+  position: relative;
+  display: flex;
+  transition: all 0.2s ease;
+  padding: 10px;
+  border-radius: 5px;
+}
+.sidebar__main a.sidebar__row .sidebar__item {
+  padding: 0 0 0 15px;
+  color: #000;
+}
+.sidebar__main a.sidebar__row .fa-home {
+  color: #246fe0;
+}
+.sidebar__main a.sidebar__row .fa-calendar-alt {
+  color: #692fc2;
+}
+.sidebar__main a.sidebar__row:hover {
+  background: #eeeeee;
+}
+.sidebar__main a.sidebar__row.active {
+  background: #eeeeee;
+}
+.sidebar__main a.row-svg svg {
+  position: absolute;
+  left: 5px;
+  top: 7.5px;
+  color: #058527;
+}
+.sidebar__main a.row-svg .sidebar__item {
+  padding: 0 0 0 30px;
+}
+
+.sidebar__projects {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 5px 20px 0;
+}
+
+.projects__title {
+  padding: 0 20px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.projects__title .projects__left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.projects__title .projects__left i.fas.fa-chevron-down {
+  opacity: 1;
+  color: grey;
+  transition: all 0.2s ease;
+}
+.projects__title .projects__left i.fas.fa-chevron-down.opened {
+  transform: rotate(-90deg);
+}
+.projects__title .projects__left .title__text {
+  padding: 0 10px;
+  font-weight: bold;
+}
+.projects__title .projects__add {
+  cursor: pointer;
+  padding: 5px;
+}
+.projects__title .projects__add i.fas.fa-plus {
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.projects__wrapper {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  animation: close_projects 0.3s ease-out forwards;
+}
+.projects__wrapper.opened {
+  animation: open_projects 0.3s ease-out forwards;
+}
+
+@keyframes open_projects {
+  0% {
+    max-height: 0;
+    overflow: hidden;
+  }
+  100% {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+}
+@keyframes close_projects {
+  0% {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  100% {
+    max-height: 0;
+    overflow: hidden;
+  }
+}
+.projects__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px 20px 10px 10px;
+  border-radius: 5px;
+}
+.projects__row.active {
+  background: #eeeeee;
+}
+.projects__row .projects__row-left {
+  display: flex;
+  align-items: center;
+}
+.projects__row .projects__dnd {
+  opacity: 0;
+  color: grey;
+  transition: all 0.2s ease;
+}
+.projects__row:hover .projects__dnd {
+  opacity: 1;
+}
+.projects__row .projects__name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 180px;
+}
+.projects__row .projects__color {
+  width: 10px;
+  height: 10px;
+  background: #058527;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+.projects__row button {
+  opacity: 0;
+  color: grey;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+.projects__row:hover button {
+  opacity: 1;
 }
 
 @media screen and (max-width: 900px) {
@@ -107,15 +271,23 @@ h1, h2, h3, h4, h5, h6 {
     height: calc(100vh - 45px);
     display: flex;
     position: absolute;
-    left: 0;
   }
   .menu .sidebar {
     width: 300px;
     background: #fafafa;
+    position: relative;
+    z-index: 50;
+    left: -100%;
+    transition: all 0.2s ease;
   }
-  .menu .shadow {
+  .menu.opened .sidebar {
+    left: 0;
+  }
+  .menu .shadow.opened {
     flex: 1 1 auto;
-    background: rgba(0, 0, 0, 0.5);
+    background: #000;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
   }
 }
 

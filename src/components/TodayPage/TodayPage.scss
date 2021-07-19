@@ -1,0 +1,198 @@
+@import "../generalStyles/reset.scss";
+@import "../generalStyles/general.scss";
+
+.today {
+  display: flex;
+  flex-direction: column;
+
+  .today__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding: 10px;
+
+    .today__left {
+      display: flex;
+      align-items: flex-end;
+
+      .today__title {
+        font-size: 20px;
+        font-weight: bold;
+        padding-right: 10px;
+      }
+
+      .today__date {
+        font-size: 14px;
+        color: $col7;
+        padding-bottom: .5px;
+      }
+    }
+
+    .today__right {
+      display: flex;
+      align-items: flex-end;
+      padding: 10px 20px 0;
+
+      button {
+        display: block;
+        color: $col7;
+        font-size: 14px;
+
+        i.fas.fa-sort-amount-up {
+          color: $col7;
+        }
+      }
+    }
+  }
+
+  .today__todo {
+    display: flex;
+    flex-direction: column;
+
+    .todo__item {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid $col5;
+      cursor: pointer;
+
+      button {
+        font-size: 18px;
+      }
+
+      .todo__left {
+        display: flex;
+        align-items: center;
+
+        button.move {
+          display: flex;
+          opacity: 0;
+          transition: all .2s ease;
+
+          i.fas.fa-ellipsis-v {
+          }
+        }
+        @media screen and (max-width: 900px) {
+          button.move {
+            display: none;
+          }
+        }
+
+        button.check {
+          border: 1px solid $col1;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          display: flex;
+          flex-shrink: 0;
+          justify-content: center;
+          align-items: center;
+          margin: 0 7px;
+          transition: all .2s ease;
+
+          i.fas.fa-check {
+            font-size: 10px;
+            color: $col1;
+            opacity: 0;
+            transition: all .2s ease;
+          }
+
+          &:hover i.fas.fa-check {
+            opacity: .5;
+          }
+
+          &:hover {
+            background: $col5;
+          }
+        }
+
+        .text {
+        }
+      }
+
+      .todo__right {
+        display: flex;
+        align-items: center;
+
+        button.edit {
+          margin: 0 15px 0 0;
+          opacity: 0;
+          color: $col7;
+          transition: all .2s ease;
+
+          i.fas.fa-pencil-alt {
+          }
+        }
+
+        button.delete {
+          opacity: 0;
+          color: $col7;
+          transition: all .2s ease;
+
+          i.far.fa-trash-alt {
+          }
+        }
+
+      }
+
+      &:hover {
+        button.move, button.edit, button.delete {
+          opacity: 1;
+          color: $col7;
+        }
+      }
+    }
+  }
+
+  .today__add-todo {
+    button.add {
+      display: flex;
+      padding: 15px;
+      transition: all .2s ease;
+
+      .add__icon {
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i.fas.fa-plus {
+          color: $col3;
+        }
+      }
+
+      .add__text {
+        color: $col7;
+        padding: 0 10px;
+        font-size: 14px;
+      }
+
+      &:hover {
+        color: $col3;
+
+        .add__text {
+          color: $col3;
+        }
+
+        .add__icon {
+          background: $col3;
+
+          i.fas.fa-plus {
+            color: $col2;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .today__row {
+      justify-content: space-around;
+    }
+  }
+}
+
+

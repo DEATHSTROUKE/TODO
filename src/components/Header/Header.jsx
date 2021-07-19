@@ -1,5 +1,8 @@
 import React from 'react';
 import './Header.css'
+import store from '../../store/store'
+import cn from 'classnames'
+import {observer} from "mobx-react-lite";
 
 const Header = () => {
     return (
@@ -7,7 +10,7 @@ const Header = () => {
             <div className="container">
                 <div className="header__wrapper">
                     <div className="header__menu">
-                        <button className="burger__btn">
+                        <button className={cn("burger__btn", {"menu-open": store.isMenuOpen})} onClick={() => store.setMenuOpen()}>
                             <span/>
                         </button>
                     </div>
@@ -15,7 +18,6 @@ const Header = () => {
                         <div className="profile__ava">
                             A
                         </div>
-                        {/*<div className="popup popup__menu"></div>*/}
                     </div>
                 </div>
             </div>
@@ -23,4 +25,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default observer(Header);

@@ -87,6 +87,8 @@ h1, h2, h3, h4, h5, h6 {
 .header {
   height: 45px;
   background: #db4c3f;
+  position: relative;
+  z-index: 50;
 }
 .header .container {
   height: 100%;
@@ -125,6 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   transform: translateX(-52%);
   z-index: 2;
+  transition: all 0.3s ease-out;
 }
 .header__menu .burger__btn::before {
   position: absolute;
@@ -136,6 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   transform: translateX(-52%);
   z-index: 2;
+  transition: all 0.3s ease-out;
 }
 .header__menu .burger__btn span {
   position: absolute;
@@ -146,6 +150,18 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   transform: translateX(-52%);
   z-index: 2;
+  transition: opacity 0.3s ease-out;
+}
+.header__menu .burger__btn.menu-open span {
+  opacity: 0;
+}
+.header__menu .burger__btn.menu-open::after {
+  top: 48%;
+  transform: translate(-52%, -52%) rotate(45deg);
+}
+.header__menu .burger__btn.menu-open::before {
+  bottom: 47%;
+  transform: translate(-52%, -52%) rotate(-45deg);
 }
 
 .header__profile {

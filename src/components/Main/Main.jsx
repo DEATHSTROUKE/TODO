@@ -1,13 +1,13 @@
 import React from 'react';
 import './Main.css'
+import '../TodayPage/TodayPage'
+import TodayPage from "../TodayPage/TodayPage";
 
 const Main = () => {
     return (
         <main className="main">
-            <div className="main__wrapper">
-                <div className="main__title">
-                    <h2>Главная</h2>
-                </div>
+            <div className="container">
+                <TodayPage/>
             </div>
         </main>
     );

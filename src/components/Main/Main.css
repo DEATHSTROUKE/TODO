@@ -1,13 +1,15 @@
 .main {
   flex: 1 1 auto;
+  padding: 20px 50px;
+}
+.main .container {
+  max-width: 900px;
 }
 
-.main__wrapper {
-  padding: 30px 50px;
-}
-
-.main__title h2 {
-  font-weight: 700;
+@media screen and (max-width: 500px) {
+  .main {
+    padding: 10px;
+  }
 }
 
 /*# sourceMappingURL=Main.css.map */

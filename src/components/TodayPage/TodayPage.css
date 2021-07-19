@@ -1,0 +1,235 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, :before, :after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/* MAIN */
+* {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.today {
+  display: flex;
+  flex-direction: column;
+}
+.today .today__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.today .today__row .today__left {
+  display: flex;
+  align-items: flex-end;
+}
+.today .today__row .today__left .today__title {
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+.today .today__row .today__left .today__date {
+  font-size: 14px;
+  color: grey;
+  padding-bottom: 0.5px;
+}
+.today .today__row .today__right {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 20px 0;
+}
+.today .today__row .today__right button {
+  display: block;
+  color: grey;
+  font-size: 14px;
+}
+.today .today__row .today__right button i.fas.fa-sort-amount-up {
+  color: grey;
+}
+.today .today__todo {
+  display: flex;
+  flex-direction: column;
+}
+.today .today__todo .todo__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid #dbdbdb;
+  cursor: pointer;
+}
+.today .today__todo .todo__item button {
+  font-size: 18px;
+}
+.today .today__todo .todo__item .todo__left {
+  display: flex;
+  align-items: center;
+}
+.today .today__todo .todo__item .todo__left button.move {
+  display: flex;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+@media screen and (max-width: 900px) {
+  .today .today__todo .todo__item .todo__left button.move {
+    display: none;
+  }
+}
+.today .today__todo .todo__item .todo__left button.check {
+  border: 1px solid #000;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 0 7px;
+  transition: all 0.2s ease;
+}
+.today .today__todo .todo__item .todo__left button.check i.fas.fa-check {
+  font-size: 10px;
+  color: #000;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+.today .today__todo .todo__item .todo__left button.check:hover i.fas.fa-check {
+  opacity: 0.5;
+}
+.today .today__todo .todo__item .todo__left button.check:hover {
+  background: #dbdbdb;
+}
+.today .today__todo .todo__item .todo__right {
+  display: flex;
+  align-items: center;
+}
+.today .today__todo .todo__item .todo__right button.edit {
+  margin: 0 15px 0 0;
+  opacity: 0;
+  color: grey;
+  transition: all 0.2s ease;
+}
+.today .today__todo .todo__item .todo__right button.delete {
+  opacity: 0;
+  color: grey;
+  transition: all 0.2s ease;
+}
+.today .today__todo .todo__item:hover button.move, .today .today__todo .todo__item:hover button.edit, .today .today__todo .todo__item:hover button.delete {
+  opacity: 1;
+  color: grey;
+}
+.today .today__add-todo button.add {
+  display: flex;
+  padding: 15px;
+  transition: all 0.2s ease;
+}
+.today .today__add-todo button.add .add__icon {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.today .today__add-todo button.add .add__icon i.fas.fa-plus {
+  color: #db4c3f;
+}
+.today .today__add-todo button.add .add__text {
+  color: grey;
+  padding: 0 10px;
+  font-size: 14px;
+}
+.today .today__add-todo button.add:hover {
+  color: #db4c3f;
+}
+.today .today__add-todo button.add:hover .add__text {
+  color: #db4c3f;
+}
+.today .today__add-todo button.add:hover .add__icon {
+  background: #db4c3f;
+}
+.today .today__add-todo button.add:hover .add__icon i.fas.fa-plus {
+  color: #fff;
+}
+@media screen and (max-width: 500px) {
+  .today .today__row {
+    justify-content: space-around;
+  }
+}
+
+/*# sourceMappingURL=TodayPage.css.map */
