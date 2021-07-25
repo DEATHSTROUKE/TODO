@@ -243,13 +243,10 @@
       width: 100%;
       height: 100%;
       background: $col1;
-      //opacity: 0;
-      //transition: opacity 3s ease;
       animation: close_shadow .5s forwards;
     }
 
     .shadow.opened {
-      //opacity: 0.5;
       animation: open_shadow .5s forwards;
     }
 

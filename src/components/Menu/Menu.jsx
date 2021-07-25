@@ -99,7 +99,8 @@ const Menu = () => {
                     </div>}
                 </div>
             </div>
-            <div className={cn("shadow", {"opened": store.isMenuOpen})}/>
+            <div className={cn("shadow", {"opened": store.isMenuOpen})}
+                 onClick={() => store.setMenuOpen()}/>
             <Popup visible={showAddProject} setVisible={setShowAddProject}>
                 <div className="projects__row">
                     <div className="projects__row-left">

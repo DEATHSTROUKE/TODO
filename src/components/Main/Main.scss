@@ -11,6 +11,12 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .main.opened {
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .main {
     padding: 10px 15px;
