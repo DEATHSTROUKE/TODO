@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const authMiddleware = require('../middlewares/authMiddleWare')
 const router = express.Router()
+const secretKey = require('../config/secretKeyJWT.js').secretKey
 let {generateAccessToken} = require('../config/generateAccessToken')
 
 
@@ -44,6 +45,24 @@ router.post('/login', async (req, res) => {
             console.log(err)
         })
 
+})
+
+router.post('/check-token', async (req, res) => {
+    const args = req.body;
+    const email = args.email, token = args.token;
+
+    const decodeData = jwt.verify(token, secretKey)
+
+    let user = await users.findOne({email: email})
+    const userId = user._id
+
+    if(String(userId) === String(decodeData.id)){
+        res.json({status: 'success'})
+    } else{
+        res.json({status: 'denied'})
+    }
+    console.log(userId)
+    console.log(decodeData)
 })
 
 router.get('/get-users', authMiddleware, async (req, res) => {

@@ -45,5 +45,4 @@ router.post('/registration', cors(corsOptions), async (req, res) => {
     }
 })
 
-
 module.exports = router
