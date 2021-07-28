@@ -1,8 +1,22 @@
 import React, {useState} from 'react';
 import '../Register/Register.css'
+import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
     const [hidePass, setHidePass] = useState(true)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const onLogin = async () => {
+        const {data} = await axios.post('/login', {
+            email,
+            password,
+        })
+        console.log(data)
+        if (data.status === 'success') {
+            localStorage.setItem('token', JSON.stringify({email: email, token: data.token}))
+        }
+    }
     return (
         <div className="content">
             <div className="form">
@@ -15,20 +29,22 @@ const Login = () => {
                 <div className="inputs">
                     <label className="label">
                         <div className="label__title">Email</div>
-                        <input type="email" className="input"/>
+                        <input type="email" className="input" value={email}
+                               onChange={(e) => setEmail(e.target.value)}/>
                     </label>
                     <label className="label label-pass">
                         <div className="label__title">Пароль</div>
-                        <input type={hidePass ? "password" : "text"} className="input input-pass"/>
+                        <input type={hidePass ? "password" : "text"} className="input input-pass"
+                               value={password} onChange={(e) => setPassword(e.target.value)}/>
                         <button className="pass__hide" onClick={() => setHidePass(h => !h)}>
                             {hidePass ? <i className="far fa-eye"/> :
                                 <i className="far fa-eye-slash"/>}
                         </button>
                     </label>
-                    <button className="form__btn">Вход</button>
+                    <button className="form__btn" onClick={onLogin}>Вход</button>
                 </div>
                 <div className="has__akk">
-                    Нет аккаунта? <a href="#" className="change_form">Регистрация</a>
+                    Нет аккаунта? <NavLink to="/register" className="change_form">Регистрация</NavLink>
                 </div>
             </div>
         </div>
