@@ -21,9 +21,11 @@ app.use(express.json())
 // app.use(bodyParser.urlencoded({extended: true}))
 app.use((express.static(__dirname + 'static')))
 
-app.use('/', require('./router/registration.js'))
-app.use('/', require('./config/successForAllIp.js'))
+app.use('/api', require('./router/registration.js'))
+app.use('/api', require('./router/login.js'))
+app.use('/api', require('./config/successForAllIp.js'))
 
-app.listen(PORT, '192.168.1.10', () => {
+
+app.listen(PORT, () => {
     console.log(`Сервер запустился на порте:${PORT}`)
 })

@@ -2,8 +2,16 @@ const express = require('express')
 const users = require('../models/users')
 const bcrypt = require('bcrypt')
 const router = express.Router()
+const cors = require('cors')
 
-router.post('/registration', async (req, res) => {
+const corsOptions = {
+    origin: '*',
+    methods: [],
+    allowedHeaders: [],
+    exposedHeaders: [],
+    credentials: true
+};
+router.post('/registration', cors(corsOptions), async (req, res) => {
 
     // console.log(req.body)
 
@@ -12,8 +20,6 @@ router.post('/registration', async (req, res) => {
     let {user, email, password} = args
     let hashPassword = await bcrypt.hash(password, 8);
     let checkRegistration
-
-
     // console.log(user, email, password)
     // console.log(hashPassword);
     // console.log(await users.findOne({email: email}))
@@ -25,7 +31,7 @@ router.post('/registration', async (req, res) => {
             email: email,
             password: hashPassword
         })
-        console.log('Пользователь был зарегистрирован')
+        console.log('Пользователь не был зарегистрирован')
         res.json({
             type: 'registration',
             status: 'success'
@@ -35,7 +41,7 @@ router.post('/registration', async (req, res) => {
             type: 'registration',
             status: 'denied'
         })
-        console.log('Пользователь не был зарегистрирован')
+        console.log('Пользователь был зарегистрирован')
     }
 })
 
